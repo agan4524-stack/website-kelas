@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPL Memories | 2025/2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 50%, #fae8ff 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .light-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.4); }
+
+        #photo-modal.active { display: flex; animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="text-[#2D3436]">
+
+    <!-- Background Ornaments -->
+    <div class="light-glow top-[-200px] left-[-200px]"></div>
+    <div class="light-glow bottom-[-200px] right-[-200px]"></div>
+    <div class="fixed inset-0 pointer-events-none opacity-[0.04] z-0 overflow-hidden select-none">
+        <p class="absolute top-20 -left-10 text-[10rem] font-bold rotate-12 uppercase">RPL</p>
+        <p class="absolute bottom-40 -right-20 text-[8rem] font-bold -rotate-12 uppercase text-blue-600">Memories</p>
+        <p class="absolute top-1/2 left-1/2 text-[15rem] font-bold -translate-x-1/2 -translate-y-1/2 opacity-30 uppercase">2026</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-bold text-xl tracking-tight text-blue-600 uppercase">REKAYASA PERANGKAT LUNAK</h1>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#stats" class="hover:text-blue-600 transition">Statistik</a>
+                <a href="#teacher" class="hover:text-blue-600 transition">Wali Kelas</a>
+                <a href="#students" class="hover:text-blue-600 transition">Siswa</a>
+                <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
+                <a href="#messages" class="hover:text-blue-600 transition">Pesan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-40 pb-20 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-blue-600 uppercase bg-blue-100/50 backdrop-blur-sm rounded-full">
+                Tahun Angkatan 2025/2026
+            </span>
+            <h2 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-slate-800">
+                Mengukir Cerita, <br> <span class="text-blue-500/60">Merajut Kenangan.</span>
+            </h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Wadah digital sederhana untuk menyimpan setiap tawa, kerja keras, dan perjalanan luar biasa kita di ruang kelas yang sama.
+            </p>
+            <div class="relative max-w-5xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-200/50 border-8 border-white/30 transition-transform duration-700 hover:scale-[1.01]">
+                <img src="assets/img/foto-kelas.jpeg" alt="Foto Kelas" class="w-full h-[350px] md:h-[550px] object-cover cursor-pointer" onclick="openModal(this.src, 'Foto Kelas Utama')">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Statistik -->
+    <section id="stats" class="py-16 px-6 relative z-10">
+        <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="glass-card p-8 rounded-3xl text-center shadow-lg shadow-blue-500/5">
+                <p class="text-4xl font-bold text-blue-600 mb-1">18</p>
+                <p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">Siswa</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center shadow-lg shadow-blue-500/5">
+                <p class="text-4xl font-bold text-blue-600 mb-1">7</p>
+                <p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">Kegiatan</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center shadow-lg shadow-blue-500/5">
+                <p class="text-4xl font-bold text-blue-600 mb-1">3</p>
+                <p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">Tahun Bersama</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center shadow-lg shadow-blue-500/5">
+                <p class="text-4xl font-bold text-blue-600 mb-1">∞</p>
+                <p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">Kenangan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Guru -->
+    <section id="teacher" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">Wali Kelas Kami</h3>
+                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-500 max-w-xl mx-auto">Terima kasih kepada bimbingan luar biasa dari para wali kelas yang telah menemani perjalanan kami.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Wali Kelas 1 -->
+                <div class="group cursor-pointer text-center" onclick="openModal('assets/img/pak-jaka.jpeg', 'Jakaria, S.Pd.I')">
+                    <div class="relative overflow-hidden rounded-[3rem] glass-card mb-6 aspect-[4/5] p-3 shadow-2xl transition-all duration-500 group-hover:scale-[1.03]">
+                        <img src="assets/img/pak-jaka.jpeg" alt="Wali Kelas 1" class="w-full h-full object-cover rounded-[2.5rem]">
+                        <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800">Jakaria, S.Pd.I</h4>
+                    <p class="text-blue-600 font-bold tracking-widest uppercase text-[10px] mt-2 bg-white/40 inline-block px-3 py-1 rounded-full">Tahun Ajar 2023-2025</p>
+                </div>
+                <!-- Wali Kelas 2 -->
+                <div class="group cursor-pointer text-center" onclick="openModal('assets/img/bu-dini.jpeg', 'Dini Aprianti, S.Pd.')">
+                    <div class="relative overflow-hidden rounded-[3rem] glass-card mb-6 aspect-[4/5] p-3 shadow-2xl transition-all duration-500 group-hover:scale-[1.03]">
+                        <img src="assets/img/bu-dini.jpeg" alt="Wali Kelas 2" class="w-full h-full object-cover rounded-[2.5rem]">
+                        <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800">Dini Aprianti, S.Pd.</h4>
+                    <p class="text-blue-600 font-bold tracking-widest uppercase text-[10px] mt-2 bg-white/40 inline-block px-3 py-1 rounded-full">Tahun Ajar 2025-2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Siswa -->
+    <section id="students" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">Anggota Kelas</h3>
+                <p class="text-slate-500">Kenali lebih dekat teman-teman hebat di balik cerita kelas kita.</p>
+            </div>
+            <div id="student-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Section Galeri -->
+    <section id="gallery" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12 text-center md:text-left">
+                <h3 class="text-3xl font-bold mb-2 text-slate-800">Galeri Momen</h3>
+                <p class="text-slate-500">Kumpulan kepingan kenangan yang tak terlupakan.</p>
+            </div>
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- Section Pesan -->
+    <section id="messages" class="py-24 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold mb-4 text-slate-800">Pesan & Kesan Terakhir</h3>
+                <p class="text-slate-500">Untaian kata dari kita, untuk dikenang selamanya.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="quote-container"></div>
+        </div>
+    </section>
+
+    <!-- Modal Pratinjau Foto -->
+    <div id="photo-modal" class="hidden fixed inset-0 z-[100] bg-black/95 backdrop-blur-md items-center justify-center p-4 md:p-10" onclick="closeModal()">
+        <button class="absolute top-6 right-6 text-white text-3xl font-light hover:text-gray-300 transition">&times;</button>
+        <div class="max-w-5xl w-full h-full flex flex-col items-center justify-center gap-4" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" alt="Preview" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain border-4 border-white/10">
+            <p id="modal-caption" class="text-white font-medium text-lg text-center bg-black/20 px-6 py-2 rounded-full backdrop-blur-sm"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-white/30 backdrop-blur-md border-t border-white/20 text-center relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-bold text-xl text-blue-600 mb-4 uppercase tracking-tighter">REKAYASA PERANGKAT LUNAK</h2>
+            <div class="flex justify-center gap-6 mb-8 text-slate-400 text-sm">
+                <span>Class of 2026</span>
+                <span>•</span>
+                <span>Built with Love</span>
+            </div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-[0.3em]">&copy; 2025-2026. Semua kenangan tersimpan aman.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data Pesan
+        const quotes = [
+            { name: "Imam Koswara", text: "Terima kasih teman-teman atas 3 tahunnya. Sukses selalu buat kita semua di masa depan!", color: "text-blue-700" },
+            { name: "Neng Putri", text: "Pendidikan pada kenyataannya tidak otomatis menjadikan seseorang itu berpendidikan, tapi melalui pendidikan itulah seseorang seharusnya menjadi berpendidikan.", color: "text-indigo-700" },
+            { name: "M. Haris", text: "Jangan pernah berhenti belajar, dunia IT luas banget. Semangat ngoding!", color: "text-slate-700" },
+            { name: "Ayu Lestari", text: "Masa-masa SMK itu nggak akan pernah terlupakan, apalagi tawa kalian.", color: "text-pink-700" },
+            { name: "Banyu Sukma", text: "RPL bukan sekadar jurusan, tapi keluarga. See you on top!", color: "text-blue-800" },
+        ];
+
+        const quoteContainer = document.getElementById('quote-container');
+        quotes.forEach(q => {
+            quoteContainer.innerHTML += `
+                <div class="p-8 glass-card rounded-[2.5rem] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl transition-colors"></div>
+                    <svg class="w-10 h-10 mb-6 text-blue-600/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-lg font-medium leading-relaxed mb-6 relative z-10 ${q.color}">"${q.text}"</p>
+                    <div class="flex items-center gap-3 relative z-10">
+                        <div class="h-[2px] w-8 bg-blue-600/30"></div>
+                        <p class="font-bold text-xs uppercase tracking-[0.2em] text-blue-600">${q.name}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Data Galeri
+       const galleryItems = [
+    { src: "assets/img/futsal-1.jpeg", desc: "Futsal 2025 - Matchday 1" },
+    { src: "assets/img/futsal-2.jpeg", desc: "Momen Seru di Lapangan" },
+    { src: "assets/img/futsal-3.jpeg", desc: "Kerja Sama Tim" },
+    { src: "assets/img/futsal-4.jpeg", desc: "Istirahat Sejenak" },
+    { src: "assets/img/futsal-5.jpeg", desc: "Keringat dan Tawa" },
+    { src: "assets/img/agustus-1.jpeg", desc: "Agustus 2025" },
+    { src: "assets/img/agustus-2.jpeg", desc: "Momen Indah" },
+    { src: "assets/img/agustus-3.jpeg", desc: "Tawa dan Tertawa" },
+    { src: "assets/img/classmet-1.jpeg", desc: "Kelas Meeting 1" },
+    { src: "assets/img/clasmeet-2.jpeg", desc: "Kelas Meeting 2" },
+    { src: "assets/img/clasmeet-3.jpeg", desc: "Kelas Meeting 3" },
+    { src: "assets/img/clasmeet-4.jpeg", desc: "Kelas Meeting 4" },
+    { src: "assets/img/cat-kelas.jpeg", desc: "Cat Kelas" },
+    { src: "assets/img/hari-guru-1.jpeg", desc: "Hari Guru" },
+    { src: "assets/img/hari-guru-2.jpeg", desc: "Hari Guru" },
+    { src: "assets/img/hari-guru-3.jpeg", desc: "Hari Guru" },
+    { src: "assets/img/hari-guru-4.jpeg", desc: "Hari Guru" },
+    { src: "assets/img/hari-santri-1.jpeg", desc: "Hari Santri" },
+    { src: "assets/img/hari-santri-2.jpeg", desc: "Hari Santri" },
+    { src: "assets/img/after-ukk-1.jpeg", desc: "After UKK 1" },
+    { src: "assets/img/after-ukk-2.jpeg", desc: "After UKK 2" },
+    { src: "assets/img/after-ukk-3.jpeg", desc: "After UKK 3" },
+    { src: "assets/img/after-ukk-4.jpeg", desc: "After UKK 4" },
+    // Kalau mau tambah foto tinggal copy baris di atas
+];
+
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        galleryItems.forEach(item => {
+            galleryGrid.innerHTML += `
+                <div class="overflow-hidden rounded-3xl glass-card p-2 group relative cursor-pointer shadow-lg" onclick="openModal('${item.src}', '${item.desc}')">
+                    <div class="overflow-hidden rounded-2xl h-80">
+                        <img src="${item.src}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x400?text=Foto+Belum+Ada'">
+                    </div>
+                    <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p class="text-white text-sm font-medium border-l-2 border-white pl-3">${item.desc}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Data Siswa
+        const students = [
+            { name: "Imam Koswara", nickname: "Ketua Kelas", image: "assets/img/Imam.jpeg" },
+            { name: "M. Haris Al-ashari", nickname: "Haris", image: "assets/img/haris.jpeg" },
+            { name: "Galih Banyu Sukma", nickname: "Banyu", image: "assets/img/Banyu.jpeg" },
+            { name: "Zenal", nickname: "Zenal", image: "assets/img/zenal.jpeg" },
+            { name: "Rizki Nuriman", nickname: "Rizki", image: "assets/img/rizki.jpeg" },
+            { name: "Fajar Setiawan", nickname: "Fajar", image: "assets/img/fajar.jpeg" },
+            { name: "Muhamad Abdul Latif", nickname: "Latif", image: "assets/img/latif.jpeg" },
+            { name: "Saepul Alam", nickname: "Epul", image: "assets/img/epul.jpeg" },
+            { name: "Ayu Lestari", nickname: "Ayu", image: "assets/img/ayu.jpeg" },
+            { name: "Astri Almasjida", nickname: "Astri", image: "assets/img/astri.jpeg" },
+            { name: "Febrie Marisa", nickname: "Febrie", image: "assets/img/ica.jpeg" },
+            { name: "Salma Nabilah", nickname: "Salma", image: "assets/img/salma.jpeg" },
+            { name: "Siti Nayla Rahma", nickname: "Anya", image: "assets/img/anya.jpeg" },
+            { name: "Neng Putri Ramdani", nickname: "Putri", image: "assets/img/putri.jpeg" },
+            { name: "Hera Fauziah", nickname: "Hera", image: "assets/img/hera.jpg" },
+            { name: "Fitria Cahaya Ramadani", nickname: "Fitria", image: "assets/img/fitria.jpeg" },
+            { name: "Siti Padilah", nickname: "Padilah", image: "assets/img/padilah.jpg" },
+            { name: "Nurhayati", nickname: "Nunuy", image: "assets/img/nurhayati.jpg" },
+        ];
+
+        const studentGrid = document.getElementById('student-grid');
+        students.forEach(student => {
+            studentGrid.innerHTML += `
+                <div class="group cursor-pointer" onclick="openModal('${student.image}', '${student.name}')">
+                    <div class="glass-card p-2 rounded-3xl mb-4 transition-all duration-500 group-hover:shadow-2xl group-hover:scale-[1.02]">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                            <img src="${student.image}" alt="${student.name}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" onerror="this.src='https://ui-avatars.com/api/?name=${student.name.replace(/ /g, '+')}&background=random&color=fff&size=512'">
+                        </div>
+                    </div>
+                    <h4 class="font-bold text-slate-800 transition group-hover:text-blue-600 px-2">${student.name}</h4>
+                    <p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest px-2 opacity-60">${student.nickname}</p>
+                </div>
+            `;
+        });
+
+        // Modal Functions
+        function openModal(src, caption) {
+            const modal = document.getElementById('photo-modal');
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal-caption').innerText = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>
