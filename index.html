@@ -62,19 +62,36 @@
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav border-b border-white/20">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="font-bold text-xl tracking-tight text-blue-600 uppercase">REKAYASA PERANGKAT LUNAK</h1>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                <a href="#stats" class="hover:text-blue-600 transition">Statistik</a>
-                <a href="#teacher" class="hover:text-blue-600 transition">Wali Kelas</a>
-                <a href="#students" class="hover:text-blue-600 transition">Siswa</a>
-                <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
-                <a href="#messages" class="hover:text-blue-600 transition">Pesan</a>
-            </div>
-        </div>
-    </nav>
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="font-bold text-lg md:text-xl tracking-tight text-blue-600 uppercase">RPL MEMORIES</h1>
+        
+        <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
 
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#home" class="hover:text-blue-600 transition">Home</a>
+            <a href="#stats" class="hover:text-blue-600 transition">Statistik</a>
+            <a href="#teacher" class="hover:text-blue-600 transition">Wali Kelas</a>
+            <a href="#students" class="hover:text-blue-600 transition">Siswa</a>
+            <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
+            <a href="#messages" class="hover:text-blue-600 transition">Pesan</a>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-lg border-b border-white/20">
+        <div class="flex flex-col space-y-4 px-6 py-6 text-sm font-semibold">
+            <a href="#home" class="mobile-link hover:text-blue-600 transition">Home</a>
+            <a href="#stats" class="mobile-link hover:text-blue-600 transition">Statistik</a>
+            <a href="#teacher" class="mobile-link hover:text-blue-600 transition">Wali Kelas</a>
+            <a href="#students" class="mobile-link hover:text-blue-600 transition">Siswa</a>
+            <a href="#gallery" class="mobile-link hover:text-blue-600 transition">Galeri</a>
+            <a href="#messages" class="mobile-link hover:text-blue-600 transition">Pesan</a>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section -->
     <section id="home" class="pt-40 pb-20 px-6 relative z-10">
         <div class="max-w-6xl mx-auto text-center">
@@ -325,6 +342,22 @@
         }
 
         window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        // Logika untuk Menu Mobile
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+// Buka/Tutup Menu saat tombol diklik
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+// Tutup menu otomatis setelah klik link (biar gak nutupin layar)
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
     </script>
 </body>
 </html>
