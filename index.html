@@ -77,7 +77,6 @@
             <a href="#teacher" class="hover:text-blue-600 transition">Wali Kelas</a>
             <a href="#students" class="hover:text-blue-600 transition">Siswa</a>
             <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
-            <a href="#virtual-room" class="hover:text-blue-600 transition">Ruang Virtual</a>
             <a href="#messages" class="hover:text-blue-600 transition">Pesan</a>
         </div>
     </div>
@@ -185,38 +184,6 @@
             <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
     </section>
-
-    <!-- Section Ruang Virtual -->
-<section id="virtual-room" class="py-24 px-6 relative z-10">
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold mb-4 text-slate-800">Ruang Virtual RPL</h3>
-            <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
-            <p class="text-slate-500 max-w-xl mx-auto">Jelajahi galeri 3D kami. Klik dan geser untuk melihat sekeliling, gunakan tombol navigasi untuk berpindah tempat.</p>
-        </div>
-        
-        <!-- Frame Ruang Virtual -->
-        <div class="glass-card p-4 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video relative group">
-            <!-- Jika kamu punya link dari Spatial.io atau Artsteps, masukkan ke src di bawah -->
-            <iframe 
-                src="https://www.spatial.io/embed/RUANG-KREASI-RPL-65c123... (Contoh Link)" 
-                class="w-full h-full rounded-2xl border-none"
-                allow="camera; microphone; fullscreen; display-capture; xr-spatial-tracking"
-            ></iframe>
-            
-            <!-- Overlay Placeholder jika link belum ada -->
-            <div id="virtual-placeholder" class="absolute inset-4 bg-slate-800/80 rounded-2xl flex flex-col items-center justify-center text-white p-6 text-center hidden">
-                <svg class="w-16 h-16 mb-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"></path>
-                </svg>
-                <h4 class="text-xl font-bold mb-2">Siap Membangun Dunia 3D?</h4>
-                <p class="text-sm text-slate-300 mb-6">Gunakan platform seperti <b>Spatial.io</b> atau <b>Artsteps</b> untuk membuat galeri 3D gratis, lalu tempel link embed-nya di sini.</p>
-                <a href="https://www.spatial.io/" target="_blank" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full transition font-semibold">Buat Ruang Sekarang</a>
-            </div>
-        </div>
-    </div>
-</section>
 
     <!-- Section Pesan -->
     <section id="messages" class="py-24 px-6 relative z-10">
